@@ -1,0 +1,4 @@
+rootProject.name = 'java-sysutils'
+
+include 'java'
+include 'native'

@@ -1,0 +1,22 @@
+apply plugin: 'c'
+
+model {
+    components {
+        sysutils(NativeLibrarySpec) {
+            sources {
+                c {
+                    source {
+                        srcDir "src/sysutils"
+                        include "**/*.c"
+                    }
+                }
+            }
+
+            binaries.all {
+                    cCompiler.args '-I', "${org.gradle.internal.jvm.Jvm.current().javaHome}/include"
+                    cCompiler.args '-I', "${org.gradle.internal.jvm.Jvm.current().javaHome}/include/linux"
+                    cCompiler.args '-D_FILE_OFFSET_BITS=64'
+            }
+        }
+    }
+}
