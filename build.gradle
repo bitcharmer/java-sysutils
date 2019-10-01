@@ -1,9 +1,11 @@
-plugins {
-    id 'base'
-}
-
 allprojects {
     repositories {
         jcenter()
+        mavenCentral()
+        mavenLocal()
     }
 }
+
+
+
+

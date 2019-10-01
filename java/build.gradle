@@ -1,11 +1,29 @@
 plugins {
-    id 'java'
+    id "java"
+    id "maven"
 }
+
+group "org.bitcharmer"
+version "0.0.1"
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
-version = '0.0.1'
+
+test {
+    useJUnitPlatform()
+}
+
+dependencies {
+    compile 'org.scijava:native-lib-loader:2.3.4'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.3.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.3.1'
+}
 
 jar {
- 
+    archiveBaseName = "java-sysutils"
+    dependsOn ":native:sysutilsSharedLibrary"
+    from("${project(':native').buildDir.absolutePath}/libs/sysutils/shared/") {
+        into("natives/linux_64")
+        include("*.so")
+    }
 }

@@ -1,8 +1,15 @@
 .gradle/
 .idea/
+*.iml
+*.ipr
+
 **/build/
 **/out/
+
+**/cmake-build*/
+**/CMakeLists.txt
 
 gradle/
 gradlew
 gradlew.bat
+

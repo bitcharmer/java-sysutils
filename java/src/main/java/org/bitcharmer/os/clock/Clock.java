@@ -1,6 +1,12 @@
-package org.bitcharmer.os;
+package org.bitcharmer.os.clock;
+
+import org.bitcharmer.SysUtils;
 
 public class Clock {
+
+    static {
+        SysUtils.loadNativeLib();
+    }
 
     public enum Type {
         REALTIME                (0),
